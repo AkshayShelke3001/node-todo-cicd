@@ -1,6 +1,7 @@
 pipeline {
     agent { label 'dev-agent' }
     
+    stages {
         stage('code'){
             steps {
                 git url: 'https://github.com/AkshayShelke3001/node-todo-cicd.git', branch: 'dev'
@@ -24,11 +25,6 @@ pipeline {
             steps {
                 sh 'docker-compose down && docker-compose up -d --no-deps --build web'
             }
-        }     
-        stage("Deploy"){
-            steps{
-                sh "docker-compose down && docker-compose up -d --no-deps --build web"
-            }
-        }
+        }       
     }
 }
