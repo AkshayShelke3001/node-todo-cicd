@@ -1,7 +1,6 @@
 pipeline {
     agent { label 'dev-agent' }
     
-    stages {
         stage('code'){
             steps {
                 git url: 'https://github.com/AkshayShelke3001/node-todo-cicd.git', branch: 'dev'
